@@ -6,21 +6,36 @@
     <meta name="description" content="Professional portfolio of Pradeep Sankaran, Flutter & Mobile Application Developer with around 2 years of experience building scalable healthcare, government, and business applications using Flutter, Dart, GetX, REST APIs, and Firebase.">
     <meta name="keywords" content="Pradeep Sankaran, Flutter Developer, Mobile Application Developer, Dart, GetX, Chennai, Healthcare Apps, ABDM, ABHA M1, REST APIs, Portfolio">
     <meta name="author" content="Pradeep Sankaran">
-    <meta name="theme-color" content="#080c14">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+
+    <!-- Apply saved or system theme before first paint -->
+    <script>
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <link rel="canonical" href="https://pradeepsankaran-s.github.io/portfolio/">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/images/profile.jpg">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pradeepsankaran-s.github.io/portfolio/">
     <meta property="og:title" content="Pradeep Sankaran | Flutter & Mobile Application Developer">
     <meta property="og:description" content="Flutter developer with around 2 years of experience building production cross-platform applications across healthcare, emergency triage, food delivery, and social messaging.">
-    <meta property="og:image" content="https://pradeepsankaran-s.github.io/portfolio/assets/profile.jpg">
+    <meta property="og:image" content="https://pradeepsankaran-s.github.io/portfolio/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://pradeepsankaran-s.github.io/portfolio/">
     <meta name="twitter:title" content="Pradeep Sankaran | Flutter & Mobile Application Developer">
     <meta name="twitter:description" content="Flutter developer with around 2 years of experience building production cross-platform applications.">
-    <meta name="twitter:image" content="https://pradeepsankaran-s.github.io/portfolio/assets/profile.jpg">
+    <meta name="twitter:image" content="https://pradeepsankaran-s.github.io/portfolio/assets/images/profile.jpg">
 
     <!-- JSON-LD Structured Data for Google Search SEO -->
     <script type="application/ld+json">
@@ -30,7 +45,7 @@
       "name": "Pradeep Sankaran",
       "jobTitle": "Flutter Developer",
       "url": "https://pradeepsankaran-s.github.io/portfolio/",
-      "image": "https://pradeepsankaran-s.github.io/portfolio/assets/profile.jpg",
+      "image": "https://pradeepsankaran-s.github.io/portfolio/assets/images/profile.jpg",
       "sameAs": [
         "https://github.com/PradeepSankaran-S",
         "https://linkedin.com/in/pradeep-sankaran-s"
@@ -65,1616 +80,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <style>
-        /* --- CSS Reset & Custom Properties --- */
-        :root {
-            --bg-primary: #080c14;
-            --bg-secondary: #0d1322;
-            --bg-card: rgba(13, 19, 34, 0.72);
-            --bg-card-hover: rgba(19, 28, 48, 0.88);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(59, 130, 246, 0.45);
-            
-            --accent-main: #2563eb;
-            --accent-glow: #60a5fa;
-            --accent-cyan: #38bdf8;
-            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            --accent-glow-gradient: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-            
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            
-            --gov-accent: #f59e0b;
-            --gov-badge-bg: rgba(245, 158, 11, 0.12);
-            --gov-border: rgba(245, 158, 11, 0.28);
-            
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
-            
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 10px 20px -3px rgba(0, 0, 0, 0.35);
-            --shadow-lg: 0 20px 28px -5px rgba(0, 0, 0, 0.55);
-            --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.25);
-            --radius-md: 14px;
-            --radius-lg: 20px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-family);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.14;
-            background: var(--accent-gradient);
-        }
-
-        .orb-1 { width: 480px; height: 480px; top: -80px; right: -80px; }
-        .orb-2 { width: 560px; height: 560px; top: 28%; left: -180px; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
-        .orb-3 { width: 500px; height: 500px; bottom: 8%; right: -120px; }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-main); }
-
-        /* Accessibility focus states */
-        :focus-visible {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 3px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- Utility Layout --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-tag {
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent-glow);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 660px;
-            margin: 12px auto 0;
-            font-size: 1.02rem;
-        }
-
-        /* --- Buttons --- */
-        .btn-group {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 11px 24px;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.92rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            gap: 8px;
-            border: 1px solid transparent;
-            text-decoration: none;
-            line-height: 1.2;
-        }
-
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border-color: var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--accent-glow);
-            border-color: var(--accent-main);
-        }
-
-        .btn-outline:hover {
-            background: rgba(59, 130, 246, 0.1);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-2px);
-        }
-
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 0.84rem;
-            border-radius: 8px;
-        }
-
-        /* --- Scroll Trigger Animation Helper --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition-smooth);
-            padding: 18px 0;
-        }
-
-        header.scrolled {
-            padding: 12px 0;
-            background: rgba(8, 12, 20, 0.88);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-primary);
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: var(--accent-gradient);
-            border-radius: 8px;
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 1.1rem;
-            box-shadow: var(--shadow-glow);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.92rem;
-            position: relative;
-            padding: 6px 0;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-main);
-            transition: var(--transition-smooth);
-        }
-
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-resume-btn {
-            margin-left: 8px;
-        }
-
-        .mobile-nav-toggle {
-            display: none;
-            background: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 6px;
-            border-radius: 6px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 150px 0 80px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            min-height: 92vh;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .badge-experience {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.22);
-            padding: 7px 16px;
-            border-radius: 9999px;
-            color: var(--accent-glow);
-            font-size: 0.84rem;
-            font-weight: 600;
-            width: max-content;
-        }
-
-        .badge-experience svg {
-            width: 15px;
-            height: 15px;
-        }
-
-        .hero-title {
-            font-size: 3.25rem;
-            font-weight: 800;
-            line-height: 1.12;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-title span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .hero-tagline {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 620px;
-            border-left: 3px solid var(--accent-main);
-            padding-left: 18px;
-            line-height: 1.7;
-        }
-
-        .hero-socials {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: 6px;
-        }
-
-        .social-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .social-pill:hover {
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--text-primary);
-            border-color: var(--accent-main);
-            transform: translateY(-2px);
-        }
-
-        .hero-right {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 310px;
-            height: 310px;
-            border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.28) 0%, rgba(29, 78, 216, 0.1) 100%);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .profile-border-glow {
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            z-index: -1;
-            filter: blur(12px);
-            opacity: 0.55;
-        }
-
-        .profile-image-wrapper {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            background: var(--bg-secondary);
-            border: 4px solid var(--bg-primary);
-            position: relative;
-        }
-
-        .profile-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .floating-badge {
-            position: absolute;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(14px);
-            padding: 10px 16px;
-            border-radius: 14px;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .floating-badge-1 {
-            top: 15px;
-            left: -30px;
-        }
-
-        .floating-badge-2 {
-            bottom: 20px;
-            right: -25px;
-        }
-
-        .floating-badge-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent-glow);
-        }
-
-        .floating-badge-text div:first-child {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .floating-badge-text div:last-child {
-            font-size: 0.84rem;
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-
-        /* --- About Section --- */
-        .about {
-            padding: 90px 0;
-            background: var(--bg-secondary);
-            position: relative;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-left-image {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            padding: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .about-text {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            text-align: left;
-        }
-
-        .about-heading {
-            font-size: 1.95rem;
-            font-weight: 800;
-            line-height: 1.25;
-        }
-
-        .about-desc {
-            font-size: 1.02rem;
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-top: 10px;
-        }
-
-        .about-feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .about-feature-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2px;
-            color: var(--accent-glow);
-            flex-shrink: 0;
-        }
-
-        .about-feature-text h4 {
-            font-size: 0.92rem;
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-
-        .about-feature-text p {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.45;
-        }
-
-        /* --- Skills Section --- */
-        .skills {
-            padding: 90px 0;
-            position: relative;
-        }
-
-        .skills-category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
-        }
-
-        .skill-group-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 26px;
-            backdrop-filter: blur(12px);
-            transition: var(--transition-smooth);
-        }
-
-        .skill-group-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .skill-group-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-
-        .skill-group-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-glow);
-        }
-
-        .skill-group-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-pill {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            transition: var(--transition-smooth);
-        }
-
-        .skill-pill:hover {
-            background: rgba(59, 130, 246, 0.15);
-            border-color: var(--accent-main);
-            color: var(--accent-glow);
-        }
-
-        /* --- Experience Section --- */
-        .experience {
-            padding: 90px 0;
-            background: var(--bg-secondary);
-            position: relative;
-        }
-
-        .timeline {
-            max-width: 860px;
-            margin: 0 auto;
-            position: relative;
-            padding-left: 32px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 7px;
-            bottom: 8px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent-main), rgba(59, 130, 246, 0.15));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 36px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -32px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent-main);
-            border: 4px solid var(--bg-secondary);
-            box-shadow: 0 0 10px var(--accent-main);
-            z-index: 2;
-        }
-
-        .timeline-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            backdrop-filter: blur(12px);
-            transition: var(--transition-smooth);
-            text-align: left;
-        }
-
-        .timeline-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-md);
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .timeline-role {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .timeline-role span {
-            color: var(--accent-glow);
-        }
-
-        .timeline-company {
-            font-size: 0.98rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        .timeline-duration {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            border-radius: 9999px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--accent-glow);
-        }
-
-        .timeline-bullets {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .timeline-bullets li {
-            position: relative;
-            padding-left: 20px;
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
-
-        .timeline-bullets li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 9px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-main);
-        }
-
-        /* --- Projects Section (Government Priority) --- */
-        .projects {
-            padding: 90px 0;
-            position: relative;
-        }
-
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 45px;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            transition: var(--transition-smooth);
-            backdrop-filter: blur(12px);
-            text-align: left;
-        }
-
-        .project-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            transform: translateY(-3px);
-        }
-
-        /* Government projects special styling */
-        .project-card.project-gov {
-            border-color: rgba(245, 158, 11, 0.35);
-            background: linear-gradient(135deg, rgba(16, 24, 40, 0.82) 0%, rgba(26, 32, 46, 0.7) 100%);
-            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.08);
-        }
-
-        .project-card.project-gov:hover {
-            border-color: rgba(245, 158, 11, 0.65);
-            box-shadow: 0 12px 30px -5px rgba(245, 158, 11, 0.16);
-        }
-
-        .project-cover {
-            position: relative;
-            background: #0b111e;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            min-height: 280px;
-        }
-
-        .project-card.project-gov .project-cover {
-            border-right-color: rgba(245, 158, 11, 0.2);
-        }
-
-        .project-cover svg {
-            width: 100%;
-            height: 100%;
-            max-height: 320px;
-        }
-
-        .project-content {
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .project-meta-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .project-domain-badge {
-            font-size: 0.74rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-cyan);
-            border: 1px solid rgba(59, 130, 246, 0.25);
-        }
-
-        .project-gov .project-domain-badge {
-            background: var(--gov-badge-bg);
-            color: var(--gov-accent);
-            border-color: var(--gov-border);
-        }
-
-        .project-title {
-            font-size: 1.55rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1.25;
-        }
-
-        .project-overview {
-            font-size: 0.96rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .project-contributions {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 0.88rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        .project-contributions strong {
-            color: #ffffff;
-            display: block;
-            margin-bottom: 4px;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-tag {
-            font-size: 0.76rem;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .project-gov .tech-tag {
-            border-color: rgba(245, 158, 11, 0.2);
-            color: #fed7aa;
-        }
-
-        /* Screenshot Thumbnails Strip */
-        .project-gallery-preview {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 4px;
-        }
-
-        .gallery-thumb {
-            position: relative;
-            height: 90px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            background: #0d1424;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-thumb:hover {
-            border-color: var(--accent-main);
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        .gallery-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-        }
-
-        .gallery-thumb-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(8, 12, 20, 0.85);
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 2px 4px;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: #cbd5e1;
-        }
-
-        .project-confidential-note {
-            font-size: 0.78rem;
-            color: #f59e0b;
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.22);
-            padding: 8px 14px;
-            border-radius: 8px;
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-confidential-note svg {
-            flex-shrink: 0;
-            width: 16px;
-            height: 16px;
-        }
-
-        .project-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: auto;
-            padding-top: 8px;
-        }
-
-        /* Global Confidentiality Banner */
-        .confidentiality-banner {
-            background: rgba(15, 23, 42, 0.65);
-            border: 1px dashed rgba(59, 130, 246, 0.35);
-            border-radius: var(--radius-lg);
-            padding: 22px 28px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            max-width: 960px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            text-align: left;
-        }
-
-        .confidentiality-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-glow);
-            flex-shrink: 0;
-        }
-
-        .confidentiality-text {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .confidentiality-text strong {
-            color: var(--text-primary);
-        }
-
-        /* --- Highlights & Education Section --- */
-        .highlights-education {
-            padding: 90px 0;
-            background: var(--bg-secondary);
-            position: relative;
-        }
-
-        .highlight-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            text-align: left;
-            backdrop-filter: blur(12px);
-            transition: var(--transition-smooth);
-        }
-
-        .stat-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
-        }
-
-        .stat-icon {
-            color: var(--accent-cyan);
-            margin-bottom: 10px;
-        }
-
-        .stat-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 4px;
-        }
-
-        .stat-desc {
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            line-height: 1.45;
-        }
-
-        .edu-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            backdrop-filter: blur(12px);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .edu-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .edu-icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-glow);
-        }
-
-        .edu-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-
-        .edu-item {
-            border-left: 2px solid var(--accent-main);
-            padding-left: 18px;
-            margin-left: 6px;
-        }
-
-        .edu-degree {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .edu-location {
-            font-size: 0.9rem;
-            color: var(--accent-glow);
-            font-weight: 600;
-            margin: 4px 0 6px;
-        }
-
-        .edu-note {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* --- Contact Section --- */
-        .contact {
-            padding: 90px 0;
-            position: relative;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            backdrop-filter: blur(12px);
-            text-align: left;
-            transition: var(--transition-smooth);
-        }
-
-        .contact-card:hover {
-            border-color: var(--border-hover);
-            transform: translateX(4px);
-        }
-
-        .contact-icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--accent-glow);
-            flex-shrink: 0;
-        }
-
-        .contact-card-details h4 {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 2px;
-        }
-
-        .contact-card-details p, .contact-card-details a {
-            font-size: 0.96rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .contact-card-details a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 6px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            transition: var(--transition-bounce);
-        }
-
-        .social-link:hover {
-            background: rgba(59, 130, 246, 0.16);
-            color: var(--accent-glow);
-            border-color: var(--accent-main);
-            transform: translateY(-3px);
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 36px;
-            backdrop-filter: blur(14px);
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .form-input {
-            width: 100%;
-            background: rgba(8, 12, 20, 0.7);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 13px 16px;
-            color: var(--text-primary);
-            font-family: var(--font-family);
-            font-size: 0.94rem;
-            transition: var(--transition-smooth);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent-main);
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
-            background: rgba(8, 12, 20, 0.95);
-        }
-
-        textarea.form-input {
-            resize: vertical;
-            min-height: 130px;
-        }
-
-        .form-feedback {
-            display: none;
-            padding: 14px 18px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 0.92rem;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .form-feedback.success {
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: #34d399;
-        }
-
-        .form-feedback.error {
-            background: rgba(239, 68, 68, 0.12);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #f87171;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #05080f;
-            border-top: 1px solid var(--border-color);
-            padding: 36px 0;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .footer-copyright {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        /* --- LIGHTBOX MODAL --- */
-        .lightbox-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 8, 15, 0.92);
-            backdrop-filter: blur(16px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        .lightbox-modal.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .lightbox-img-wrapper {
-            position: relative;
-            max-width: 100%;
-            max-height: 78vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
-            background: #0b111e;
-        }
-
-        .lightbox-img-wrapper img {
-            max-width: 100%;
-            max-height: 78vh;
-            object-fit: contain;
-        }
-
-        .lightbox-caption {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            text-align: center;
-        }
-
-        .lightbox-counter {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .lightbox-btn {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            z-index: 2005;
-        }
-
-        .lightbox-btn:hover {
-            background: rgba(59, 130, 246, 0.4);
-            border-color: var(--accent-cyan);
-            transform: scale(1.08);
-        }
-
-        .lightbox-close {
-            top: 20px;
-            right: 24px;
-        }
-
-        .lightbox-prev {
-            left: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .lightbox-next {
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* --- PROJECT DETAILS MODAL --- */
-        .project-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 8, 15, 0.88);
-            backdrop-filter: blur(14px);
-            z-index: 2100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        .project-modal.active {
-            display: flex;
-        }
-
-        .project-modal-dialog {
-            background: #0f1627;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            width: 100%;
-            max-width: 680px;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 36px;
-            position: relative;
-            box-shadow: var(--shadow-lg);
-            text-align: left;
-        }
-
-        .project-modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: #cbd5e1;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-smooth);
-        }
-
-        .project-modal-close:hover {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ffffff;
-            border-color: #ef4444;
-        }
-
-        .project-modal-badge {
-            font-size: 0.74rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 4px 10px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .project-modal-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 14px;
-            line-height: 1.25;
-        }
-
-        .project-modal-section {
-            margin-top: 20px;
-        }
-
-        .project-modal-section h4 {
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--accent-glow);
-            margin-bottom: 8px;
-        }
-
-        .project-modal-section p, .project-modal-section ul {
-            font-size: 0.94rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .project-modal-section ul {
-            padding-left: 20px;
-        }
-
-        .project-modal-section ul li {
-            margin-bottom: 6px;
-        }
-
-        /* --- Reduced Motion --- */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-            .reveal {
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
-
-        /* --- Responsive Breakpoints --- */
-        @media (max-width: 1024px) {
-            .hero-title { font-size: 2.8rem; }
-            .project-card { grid-template-columns: 1fr; }
-            .project-cover { min-height: 220px; border-right: none; border-bottom: 1px solid var(--border-color); }
-            .highlight-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-nav-toggle { display: block; }
-
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: rgba(8, 12, 20, 0.98);
-                backdrop-filter: blur(20px);
-                border-left: 1px solid var(--border-color);
-                flex-direction: column;
-                justify-content: center;
-                gap: 28px;
-                transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 999;
-                padding: 40px 24px;
-            }
-
-            nav.open { right: 0; }
-            .nav-resume-btn { margin-left: 0; width: 100%; }
-
-            .hero { padding: 120px 0 60px; min-height: auto; }
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .hero-right { order: -1; }
-            .badge-experience, .hero-tagline { margin: 0 auto; }
-            .hero-tagline { border-left: none; border-top: 2px solid var(--accent-main); padding-left: 0; padding-top: 14px; }
-            .btn-group, .hero-socials { justify-content: center; }
-
-            .about-grid { grid-template-columns: 1fr; gap: 36px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-            .skills-category-grid { grid-template-columns: 1fr; }
-
-            .lightbox-prev { left: 10px; }
-            .lightbox-next { right: 10px; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2.2rem; }
-            .profile-container { width: 250px; height: 250px; }
-            .floating-badge { padding: 6px 12px; }
-            .project-content { padding: 22px; }
-            .project-gallery-preview { grid-template-columns: repeat(2, 1fr); }
-            .gallery-thumb { height: 80px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .contact-form-container { padding: 24px; }
-            .project-modal-dialog { padding: 24px; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-
-    <!-- Ambient Glow Background -->
-    <div class="ambient-bg" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
 
     <!-- Header Navigation -->
     <header id="header">
@@ -1694,13 +102,24 @@
                 <a href="resume/Pradeep_S_Flutter_Developer_Resume.pdf" download="Pradeep_S_Flutter_Developer_Resume.pdf" class="btn btn-primary btn-sm nav-resume-btn" target="_blank" rel="noopener noreferrer">Resume</a>
             </nav>
 
-            <button class="mobile-nav-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="4" y1="12" x2="20" y2="12"></line>
-                    <line x1="4" y1="6" x2="20" y2="6"></line>
-                    <line x1="4" y1="18" x2="20" y2="18"></line>
-                </svg>
-            </button>
+            <div class="header-actions">
+                <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch color theme">
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                    </svg>
+                </button>
+                <button type="button" class="mobile-nav-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -1771,39 +190,8 @@
 
                     <div class="hero-right reveal">
                         <div class="profile-container">
-                            <div class="profile-border-glow" aria-hidden="true"></div>
                             <div class="profile-image-wrapper">
-                                <img src="assets/profile.jpg" alt="Pradeep Sankaran - Flutter Developer" width="310" height="310" loading="eager">
-                            </div>
-                            
-                            <!-- Badges -->
-                            <div class="floating-badge floating-badge-1" aria-hidden="true">
-                                <div class="floating-badge-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                        <polyline points="2 17 12 22 22 17"></polyline>
-                                        <polyline points="2 12 12 17 22 12"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="floating-badge-text">
-                                    <div>Mobile Architecture</div>
-                                    <div>Flutter & Dart</div>
-                                </div>
-                            </div>
-
-                            <div class="floating-badge floating-badge-2" aria-hidden="true">
-                                <div class="floating-badge-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                                    </svg>
-                                </div>
-                                <div class="floating-badge-text">
-                                    <div>APIs & Integrations</div>
-                                    <div>REST, HTTP & Chopper</div>
-                                </div>
+                                <img src="assets/images/profile.jpg" alt="Pradeep Sankaran - Flutter Developer" width="310" height="310" loading="eager">
                             </div>
                         </div>
                     </div>
@@ -1817,52 +205,6 @@
             <div class="container">
                 <div class="about-grid">
                     
-                    <div class="about-left-image reveal">
-                        <!-- Custom Technical Architecture Illustration -->
-                        <svg viewBox="0 0 420 300" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Flutter Architecture Diagram">
-                            <rect width="420" height="300" rx="16" fill="#0c1220" />
-                            <!-- Subtle Grid -->
-                            <path d="M0 60h420M0 120h420M0 180h420M0 240h420" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-                            <path d="M70 0v300M140 0v300M210 0v300M280 0v300M350 0v300" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-                            
-                            <!-- Phone Outline -->
-                            <rect x="50" y="30" width="130" height="240" rx="20" fill="rgba(15,23,42,0.9)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" />
-                            <rect x="95" y="38" width="40" height="6" rx="3" fill="rgba(255,255,255,0.15)" />
-                            
-                            <!-- Screen Blocks -->
-                            <rect x="62" y="60" width="106" height="26" rx="6" fill="rgba(59,130,246,0.18)" stroke="rgba(59,130,246,0.25)" />
-                            <rect x="62" y="96" width="106" height="50" rx="6" fill="rgba(255,255,255,0.04)" />
-                            <circle cx="80" cy="121" r="10" fill="rgba(59,130,246,0.25)" />
-                            <rect x="100" y="114" width="55" height="5" rx="2" fill="rgba(255,255,255,0.2)" />
-                            <rect x="100" y="123" width="38" height="5" rx="2" fill="rgba(255,255,255,0.1)" />
-                            
-                            <rect x="62" y="156" width="50" height="40" rx="6" fill="rgba(255,255,255,0.03)" />
-                            <rect x="118" y="156" width="50" height="40" rx="6" fill="rgba(255,255,255,0.03)" />
-                            
-                            <!-- Connecting Lines -->
-                            <path d="M180 90h50M180 150h50M180 210h50" stroke="rgba(59,130,246,0.4)" stroke-width="1.5" stroke-dasharray="4 4" />
-                            
-                            <!-- Architecture Nodes -->
-                            <g transform="translate(230, 65)">
-                                <rect width="150" height="48" rx="8" fill="rgba(15,23,42,0.85)" stroke="rgba(59,130,246,0.3)" />
-                                <text x="14" y="24" fill="#60a5fa" font-size="11" font-weight="bold">UI & Presentation</text>
-                                <text x="14" y="38" fill="#94a3b8" font-size="9">GetX / Responsive Views</text>
-                            </g>
-                            
-                            <g transform="translate(230, 125)">
-                                <rect width="150" height="48" rx="8" fill="rgba(15,23,42,0.85)" stroke="rgba(96,165,250,0.3)" />
-                                <text x="14" y="24" fill="#f8fafc" font-size="11" font-weight="bold">Business Logic</text>
-                                <text x="14" y="38" fill="#94a3b8" font-size="9">State Controllers & Clean Arch</text>
-                            </g>
-                            
-                            <g transform="translate(230, 185)">
-                                <rect width="150" height="48" rx="8" fill="rgba(15,23,42,0.85)" stroke="rgba(59,130,246,0.3)" />
-                                <text x="14" y="24" fill="#38bdf8" font-size="11" font-weight="bold">Data & Services</text>
-                                <text x="14" y="38" fill="#94a3b8" font-size="9">REST APIs, Chopper & ABDM</text>
-                            </g>
-                        </svg>
-                    </div>
-
                     <div class="about-text reveal">
                         <div class="section-tag">About Me</div>
                         <h2 class="about-heading">Engineering Reliable Mobile Experiences</h2>
@@ -1924,6 +266,22 @@
                         </div>
                     </div>
 
+
+                    <aside class="about-facts reveal" aria-label="Profile at a glance">
+                        <h3>At a glance</h3>
+                        <dl class="facts-list">
+                            <div><dt>Role</dt><dd>Flutter Developer</dd></div>
+                            <div><dt>Company</dt><dd>Timesmed Healthsoft Pvt Ltd.</dd></div>
+                            <div><dt>Experience</dt><dd>Around 2 years</dd></div>
+                            <div><dt>Location</dt><dd>Chennai, Tamil Nadu, India</dd></div>
+                            <div><dt>Domains</dt><dd>Government healthcare, telehealth, food delivery, social chat</dd></div>
+                            <div><dt>Education</dt><dd>B.Tech, Karpagam Academy of Higher Education</dd></div>
+                        </dl>
+                        <a href="resume/Pradeep_S_Flutter_Developer_Resume.pdf" download="Pradeep_S_Flutter_Developer_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Download Resume</span>
+                        </a>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -2140,42 +498,25 @@
                     <!-- 1. TAEI (Government Healthcare) -->
                     <article class="project-card project-gov reveal" id="project-taei">
                         <div class="project-cover">
-                            <!-- Emergency care vector illustration -->
-                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TAEI Emergency Care Workflow Diagram">
-                                <rect width="440" height="280" fill="#0d1424"/>
-                                <circle cx="220" cy="140" r="100" stroke="rgba(245, 158, 11, 0.15)" stroke-width="1.5" />
-                                <circle cx="220" cy="140" r="60" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                                
-                                <!-- Central Hospital Emergency Hub -->
-                                <rect x="180" y="105" width="80" height="70" rx="12" fill="rgba(16, 24, 40, 0.9)" stroke="#f59e0b" stroke-width="2"/>
-                                <path d="M220 125v30M205 140h30" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
-                                
-                                <!-- Surrounding Nodes: Pre-Hospital, In-Hospital, Rehab -->
-                                <g transform="translate(60, 50)">
-                                    <rect width="105" height="38" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(245, 158, 11, 0.4)"/>
-                                    <text x="12" y="23" fill="#fed7aa" font-size="10" font-weight="bold">PRE-HOSPITAL</text>
-                                </g>
-                                <path d="M165 70l45 40" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.5" stroke-dasharray="3 3"/>
-                                
-                                <g transform="translate(280, 50)">
-                                    <rect width="105" height="38" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(59, 130, 246, 0.4)"/>
-                                    <text x="14" y="23" fill="#93c5fd" font-size="10" font-weight="bold">TRIAGE DESK</text>
-                                </g>
-                                <path d="M280 75l-35 35" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" stroke-dasharray="3 3"/>
-                                
-                                <g transform="translate(170, 210)">
-                                    <rect width="100" height="38" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(245, 158, 11, 0.4)"/>
-                                    <text x="16" y="23" fill="#fed7aa" font-size="10" font-weight="bold">REPORTING</text>
-                                </g>
-                                <path d="M220 175v35" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TAEI emergency care workflow: pre-hospital, triage and reporting connected to a central emergency hub">
+                                <circle class="ill-ring" cx="220" cy="140" r="96"/>
+                                <path class="ill-link" d="M165 88l40 26M275 88l-40 26M220 176v34"/>
+                                <rect class="ill-hub" x="185" y="108" width="70" height="66" rx="14"/>
+                                <path class="ill-mark" d="M220 127v28M206 141h28"/>
+                                <rect class="ill-node" x="62" y="62" width="110" height="36" rx="8"/>
+                                <text class="ill-label" x="117" y="84" text-anchor="middle">PRE-HOSPITAL</text>
+                                <rect class="ill-node" x="268" y="62" width="110" height="36" rx="8"/>
+                                <text class="ill-label" x="323" y="84" text-anchor="middle">TRIAGE DESK</text>
+                                <rect class="ill-node" x="165" y="210" width="110" height="36" rx="8"/>
+                                <text class="ill-label" x="220" y="232" text-anchor="middle">REPORTING</text>
                             </svg>
                         </div>
                         <div class="project-content">
                             <div class="project-meta-row">
-                                <span class="project-domain-badge">Government Healthcare &bull; Priority #1</span>
+                                <span class="project-domain-badge">Government Healthcare</span>
                                 <span class="tech-tag">State Emergency Care</span>
                             </div>
-                            <h3 class="project-title">1. TAEI (Tamil Nadu Accident & Emergency Care Initiative)</h3>
+                            <h3 class="project-title">TAEI (Tamil Nadu Accident & Emergency Care Initiative)</h3>
                             <p class="project-overview">
                                 An advanced digital emergency care platform that unifies pre-hospital transit, in-hospital triage, and post-emergency clinical workflows into an integrated, zero-latency state health network.
                             </p>
@@ -2200,7 +541,7 @@
                                     <span>Official Portal</span>
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </a>
-                                <button class="btn btn-secondary btn-sm" onclick="openProjectModal('taei')">Project Details</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="openProjectModal('taei')">Project Details</button>
                             </div>
                         </div>
                     </article>
@@ -2208,31 +549,21 @@
                     <!-- 2. MTM (Government Healthcare) -->
                     <article class="project-card project-gov reveal" id="project-mtm">
                         <div class="project-cover">
-                            <!-- Public health fieldwork triage illustration -->
-                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MTM Fieldwork Healthcare Diagram">
-                                <rect width="440" height="280" fill="#0d1424"/>
-                                <!-- Grid -->
-                                <path d="M0 70h440M0 140h440M0 210h440" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
-                                
-                                <!-- Core Shield of National Health Mission -->
-                                <path d="M220 50 L310 90 V170 C310 215 220 245 220 245 C220 245 130 215 130 170 V90 Z" fill="rgba(16, 24, 40, 0.85)" stroke="#f59e0b" stroke-width="2"/>
-                                
-                                <path d="M220 100v60M190 130h60" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
-                                
-                                <!-- Digital Healthcare Badge -->
-                                <rect x="175" y="180" width="90" height="26" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.3)"/>
-                                <text x="220" y="197" fill="#fed7aa" font-size="9" font-weight="bold" text-anchor="middle">ABHA M1 INTEGRATION</text>
-                                
-                                <!-- Pulse line across -->
-                                <path d="M50 140h60l10-18 10 36 10-24 10 6h150" stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" stroke-linecap="round"/>
+                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MTM community healthcare: health shield with ABHA M1 integration">
+                                <path class="ill-pulse" d="M40 140h70l10-18 10 36 10-24 10 6"/>
+                                <path class="ill-pulse" d="M310 140h90"/>
+                                <path class="ill-hub" d="M220 48 L304 84 V160 C304 206 220 236 220 236 C220 236 136 206 136 160 V84 Z"/>
+                                <path class="ill-mark" d="M220 104v52M194 130h52"/>
+                                <rect class="ill-node" x="168" y="176" width="104" height="26" rx="6"/>
+                                <text class="ill-label" x="220" y="193" text-anchor="middle" style="font-size:9px">ABHA M1</text>
                             </svg>
                         </div>
                         <div class="project-content">
                             <div class="project-meta-row">
-                                <span class="project-domain-badge">Government Healthcare &bull; Priority #2</span>
+                                <span class="project-domain-badge">Government Healthcare</span>
                                 <span class="tech-tag">National Health Mission</span>
                             </div>
-                            <h3 class="project-title">2. MTM (Makkalai Thedi Maruthuvam)</h3>
+                            <h3 class="project-title">MTM (Makkalai Thedi Maruthuvam)</h3>
                             <p class="project-overview">
                                 A flagship public health initiative of the Tamil Nadu Government designed to deliver comprehensive, home-based healthcare and non-communicable disease triage across local communities.
                             </p>
@@ -2257,7 +588,7 @@
                                     <span>Program Overview</span>
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </a>
-                                <button class="btn btn-secondary btn-sm" onclick="openProjectModal('mtm')">Project Details</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="openProjectModal('mtm')">Project Details</button>
                             </div>
                         </div>
                     </article>
@@ -2265,48 +596,32 @@
                     <!-- 3. TimesMed (Healthcare Platform with Gallery) -->
                     <article class="project-card reveal" id="project-timesmed">
                         <div class="project-cover">
-                            <!-- Telehealth illustration -->
-                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TimesMed Platform Illustration">
-                                <rect width="440" height="280" fill="#0d1424"/>
-                                <path d="M40 140h70l12-30 18 60 12-40 10 10h248" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <rect x="200" y="105" width="40" height="40" rx="8" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1.5"/>
-                                <path d="M220 117v16M212 125h16" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="340" cy="80" r="30" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)"/>
-                                <text x="340" y="84" fill="#93c5fd" font-size="9" font-weight="bold" text-anchor="middle">TELEHEALTH</text>
-                            </svg>
+                            <div class="project-shots" role="group" aria-label="TimesMed Screenshots">
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('timesmed', 0)" aria-label="View Onboarding Screen">
+                                    <img src="assets/images/screenshots/timesmed/onboard.webp" alt="TimesMed Onboarding Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('timesmed', 1)" aria-label="View Login Screen">
+                                    <img src="assets/images/screenshots/timesmed/login.webp" alt="TimesMed Login Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('timesmed', 2)" aria-label="View Home Dashboard Screen">
+                                    <img src="assets/images/screenshots/timesmed/home.webp" alt="TimesMed Home Dashboard Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('timesmed', 3)" aria-label="View AI Consultation Screen">
+                                    <img src="assets/images/screenshots/timesmed/ai.webp" alt="TimesMed AI Consultation Screen" loading="lazy">
+                                </button>
+                            </div>
                         </div>
                         <div class="project-content">
                             <div class="project-meta-row">
                                 <span class="project-domain-badge">Telehealth & Consultation</span>
-                                <span class="tech-tag">4 Screenshots Included</span>
                             </div>
-                            <h3 class="project-title">3. TimesMed (Doctor-Patient Telehealth)</h3>
+                            <h3 class="project-title">TimesMed (Doctor-Patient Telehealth)</h3>
                             <p class="project-overview">
                                 A comprehensive mobile healthcare platform facilitating doctor-patient consultations, appointment booking, digital prescriptions, and real-time medical vital tracking.
                             </p>
                             <div class="project-contributions">
                                 <strong>Technical Contribution:</strong>
                                 Designed and deployed interactive telehealth dashboard screens connecting providers with live patient metrics. Optimized layout rendering to prevent UI thread blockages during prolonged live monitoring sessions and integrated AI diagnostic consultation components.
-                            </div>
-                            
-                            <!-- 4 Real Screenshots Gallery -->
-                            <div class="project-gallery-preview" role="region" aria-label="TimesMed Screenshots">
-                                <div class="gallery-thumb" onclick="openLightbox('timesmed', 0)" tabindex="0" role="button" aria-label="View Onboarding Screen">
-                                    <img src="project screenshots/timesmed/onboard.jpeg" alt="TimesMed Onboarding Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Onboarding</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('timesmed', 1)" tabindex="0" role="button" aria-label="View Login Screen">
-                                    <img src="project screenshots/timesmed/login.jpeg" alt="TimesMed Login Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Authentication</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('timesmed', 2)" tabindex="0" role="button" aria-label="View Home Dashboard Screen">
-                                    <img src="project screenshots/timesmed/home.jpeg" alt="TimesMed Home Dashboard Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Dashboard</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('timesmed', 3)" tabindex="0" role="button" aria-label="View AI Consultation Screen">
-                                    <img src="project screenshots/timesmed/ai.jpeg" alt="TimesMed AI Consultation Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">AI Consult</div>
-                                </div>
                             </div>
 
                             <div class="project-tech">
@@ -2317,11 +632,11 @@
                                 <span class="tech-tag">Firebase</span>
                             </div>
                             <div class="project-actions">
-                                <button class="btn btn-primary btn-sm" onclick="openLightbox('timesmed', 0)">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="openLightbox('timesmed', 0)">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                                     <span>Expand Gallery</span>
                                 </button>
-                                <button class="btn btn-secondary btn-sm" onclick="openProjectModal('timesmed')">Project Details</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="openProjectModal('timesmed')">Project Details</button>
                             </div>
                         </div>
                     </article>
@@ -2329,50 +644,32 @@
                     <!-- 4. FOODe (Food Delivery with Gallery) -->
                     <article class="project-card reveal" id="project-foode">
                         <div class="project-cover">
-                            <!-- Food delivery & payment illustration -->
-                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="FOODe App Illustration">
-                                <rect width="440" height="280" fill="#0d1424"/>
-                                <rect x="130" y="70" width="180" height="130" rx="14" fill="rgba(15,23,42,0.9)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-                                <circle cx="170" cy="115" r="16" fill="rgba(59,130,246,0.2)"/>
-                                <path d="M165 115l4 4 8-8" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <rect x="195" y="105" width="90" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
-                                <rect x="195" y="120" width="60" height="6" rx="2" fill="rgba(255,255,255,0.08)"/>
-                                <rect x="150" y="155" width="140" height="28" rx="6" fill="var(--accent-gradient)"/>
-                                <text x="220" y="173" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">RAZORPAY CHECKOUT</text>
-                            </svg>
+                            <div class="project-shots" role="group" aria-label="FOODe Screenshots">
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('foode', 0)" aria-label="View Home Discovery Screen">
+                                    <img src="assets/images/screenshots/foode/home.webp" alt="FOODe Home Restaurant Discovery Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('foode', 1)" aria-label="View Restaurant Details Screen">
+                                    <img src="assets/images/screenshots/foode/restaurant-details.webp" alt="FOODe Restaurant Menu Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('foode', 2)" aria-label="View Orders Screen">
+                                    <img src="assets/images/screenshots/foode/orders.webp" alt="FOODe Orders Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('foode', 3)" aria-label="View Live Tracking Screen">
+                                    <img src="assets/images/screenshots/foode/tracking.webp" alt="FOODe Live Order Tracking Screen" loading="lazy">
+                                </button>
+                            </div>
                         </div>
                         <div class="project-content">
                             <div class="project-meta-row">
                                 <span class="project-domain-badge">Commerce & Logistics</span>
-                                <span class="tech-tag">4 Screenshots Included</span>
                             </div>
-                            <h3 class="project-title">4. FOODe (Dine-in & Food Ordering)</h3>
+                            <h3 class="project-title">FOODe (Dine-in & Food Ordering)</h3>
                             <p class="project-overview">
                                 A consumer mobile application uniting restaurant discovery, menu browsing, dine-in seat reservations, cart checkouts, and real-time delivery order tracking.
                             </p>
                             <div class="project-contributions">
                                 <strong>Technical Contribution:</strong>
                                 Created the frontend framework and unified communication APIs. Handled live location sets, Google Maps styling, state-reactive order updates using GetX, and integrated secure payment processing via the Razorpay SDK.
-                            </div>
-                            
-                            <!-- 4 Real Screenshots Gallery -->
-                            <div class="project-gallery-preview" role="region" aria-label="FOODe Screenshots">
-                                <div class="gallery-thumb" onclick="openLightbox('foode', 0)" tabindex="0" role="button" aria-label="View Home Discovery Screen">
-                                    <img src="project screenshots/Foode/home.jpeg" alt="FOODe Home Restaurant Discovery Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Discovery</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('foode', 1)" tabindex="0" role="button" aria-label="View Restaurant Details Screen">
-                                    <img src="project screenshots/Foode/retsurant_details.jpeg" alt="FOODe Restaurant Menu Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Menu & Items</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('foode', 2)" tabindex="0" role="button" aria-label="View Orders Screen">
-                                    <img src="project screenshots/Foode/orders.png" alt="FOODe Orders Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Order Cart</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('foode', 3)" tabindex="0" role="button" aria-label="View Live Tracking Screen">
-                                    <img src="project screenshots/Foode/tracking.png" alt="FOODe Live Order Tracking Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Live Tracking</div>
-                                </div>
                             </div>
 
                             <div class="project-tech">
@@ -2383,11 +680,11 @@
                                 <span class="tech-tag">Razorpay SDK</span>
                             </div>
                             <div class="project-actions">
-                                <button class="btn btn-primary btn-sm" onclick="openLightbox('foode', 0)">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="openLightbox('foode', 0)">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                                     <span>Expand Gallery</span>
                                 </button>
-                                <button class="btn btn-secondary btn-sm" onclick="openProjectModal('foode')">Project Details</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="openProjectModal('foode')">Project Details</button>
                             </div>
                         </div>
                     </article>
@@ -2395,53 +692,32 @@
                     <!-- 5. Howdy Chats (Social & Real-time Messaging) -->
                     <article class="project-card reveal" id="project-howdy">
                         <div class="project-cover">
-                            <!-- Real-time chat & WebSocket illustration -->
-                            <svg viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Howdy Chats App Illustration">
-                                <rect width="440" height="280" fill="#0d1424"/>
-                                <!-- Chat Bubbles -->
-                                <path d="M80 70h160a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12h-130l-20 15v-15a12 12 0 0 1-10-12V82a12 12 0 0 1 12-12z" fill="rgba(15,23,42,0.9)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
-                                <rect x="95" y="88" width="100" height="6" rx="2" fill="rgba(255,255,255,0.2)"/>
-                                <rect x="95" y="100" width="70" height="6" rx="2" fill="rgba(255,255,255,0.1)"/>
-                                
-                                <path d="M200 140h150a12 12 0 0 1 12 12v35a12 12 0 0 1-12 12h-20v14l-18-14H200a12 12 0 0 1-12-12v-35a12 12 0 0 1 12-12z" fill="rgba(37,99,235,0.2)" stroke="#3b82f6" stroke-width="1.5"/>
-                                <rect x="215" y="156" width="90" height="6" rx="2" fill="#93c5fd"/>
-                                <rect x="215" y="168" width="60" height="6" rx="2" fill="rgba(255,255,255,0.15)"/>
-                                
-                                <circle cx="345" cy="188" r="4" fill="#34d399"/>
-                            </svg>
+                            <div class="project-shots" role="group" aria-label="Howdy Chats Screenshots">
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('howdy', 0)" aria-label="View Onboarding Screen">
+                                    <img src="assets/images/screenshots/howdy-chats/onboard.webp" alt="Howdy Chats Onboarding Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('howdy', 1)" aria-label="View Direct Chats Screen">
+                                    <img src="assets/images/screenshots/howdy-chats/chats.webp" alt="Howdy Chats Direct Messaging Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('howdy', 2)" aria-label="View Discover Screen">
+                                    <img src="assets/images/screenshots/howdy-chats/discover.webp" alt="Howdy Chats Discovery Screen" loading="lazy">
+                                </button>
+                                <button type="button" class="gallery-thumb" onclick="openLightbox('howdy', 3)" aria-label="View Interactive Feed Screen">
+                                    <img src="assets/images/screenshots/howdy-chats/feed.webp" alt="Howdy Chats Timeline Feed Screen" loading="lazy">
+                                </button>
+                            </div>
                         </div>
                         <div class="project-content">
                             <div class="project-meta-row">
                                 <span class="project-domain-badge">Real-Time Social Platform</span>
-                                <span class="tech-tag">4 Screenshots Included</span>
                             </div>
-                            <h3 class="project-title">5. Howdy Chats (Real-Time Messaging)</h3>
+                            <h3 class="project-title">Howdy Chats (Real-Time Messaging)</h3>
                             <p class="project-overview">
                                 A responsive text communication and social community application featuring direct chat conversations, dynamic media discovery feeds, and real-time status synchronization.
                             </p>
                             <div class="project-contributions">
                                 <strong>Technical Contribution:</strong>
                                 Crafted responsive user experiences, interactive feed panels, and conversation views. Implemented asynchronous WebSocket bindings to support high-efficiency message transmission, immediate status syncing, and low-latency screen refreshes.
-                            </div>
-                            
-                            <!-- 4 Real Screenshots Gallery -->
-                            <div class="project-gallery-preview" role="region" aria-label="Howdy Chats Screenshots">
-                                <div class="gallery-thumb" onclick="openLightbox('howdy', 0)" tabindex="0" role="button" aria-label="View Onboarding Screen">
-                                    <img src="project screenshots/howdy chats/onboard.webp" alt="Howdy Chats Onboarding Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Welcome</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('howdy', 1)" tabindex="0" role="button" aria-label="View Direct Chats Screen">
-                                    <img src="project screenshots/howdy chats/chats.webp" alt="Howdy Chats Direct Messaging Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Direct Chats</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('howdy', 2)" tabindex="0" role="button" aria-label="View Discover Screen">
-                                    <img src="project screenshots/howdy chats/discover.webp" alt="Howdy Chats Discovery Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Discovery</div>
-                                </div>
-                                <div class="gallery-thumb" onclick="openLightbox('howdy', 3)" tabindex="0" role="button" aria-label="View Interactive Feed Screen">
-                                    <img src="project screenshots/howdy chats/ifeed.webp" alt="Howdy Chats Timeline Feed Screen" loading="lazy">
-                                    <div class="gallery-thumb-caption">Social Feed</div>
-                                </div>
                             </div>
 
                             <div class="project-tech">
@@ -2452,11 +728,11 @@
                                 <span class="tech-tag">Material UI</span>
                             </div>
                             <div class="project-actions">
-                                <button class="btn btn-primary btn-sm" onclick="openLightbox('howdy', 0)">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="openLightbox('howdy', 0)">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                                     <span>Expand Gallery</span>
                                 </button>
-                                <button class="btn btn-secondary btn-sm" onclick="openProjectModal('howdy')">Project Details</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="openProjectModal('howdy')">Project Details</button>
                             </div>
                         </div>
                     </article>
@@ -2540,7 +816,7 @@
                         <div class="edu-item">
                             <h4 class="edu-degree">B.Tech in Chemical Engineering</h4>
                             <div class="edu-location">Karpagam Academy of Higher Education</div>
-                            <div class="edu-duration" style="display: inline-block; font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 8px;">2016 – 2020</div>
+                            <div class="edu-duration">2016 – 2020</div>
                             <p class="edu-note">Undergraduate engineering degree providing strong analytical thinking, quantitative logic, and systematic problem-solving foundations—applied directly to robust mobile architecture and scalable Flutter software engineering.</p>
                         </div>
                     </div>
@@ -2583,7 +859,7 @@
                             </div>
                             <div class="contact-card-details">
                                 <h4>Phone</h4>
-                                <p><a href="tel:+918778035290">+91 8778035290</a> / <a href="tel:+919865262313">+91 9865262313</a></p>
+                                <p><a href="tel:+918778035290">+91&nbsp;8778035290</a> / <a href="tel:+919865262313">+91&nbsp;9865262313</a></p>
                             </div>
                         </div>
 
@@ -2639,7 +915,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="form-email" class="form-label">Email Address *</label>
-                                <input type="email" id="form-email" class="form-input" placeholder="pradeepsankaran70@gmail.com" required aria-required="true">
+                                <input type="email" id="form-email" class="form-input" placeholder="you@example.com" required aria-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="form-message" class="form-label">Message *</label>
@@ -2675,18 +951,18 @@
 
     <!-- LIGHTBOX MODAL FOR REAL SCREENSHOTS -->
     <div class="lightbox-modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Project Screenshot Viewer">
-        <button class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Close Lightbox (Esc)">
+        <button type="button" class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Close Lightbox (Esc)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
-        <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous Screenshot (Left Arrow)">
+        <button type="button" class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous Screenshot (Left Arrow)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next Screenshot (Right Arrow)">
+        <button type="button" class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next Screenshot (Right Arrow)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <div class="lightbox-content">
             <div class="lightbox-img-wrapper">
-                <img id="lightbox-img" src="" alt="Project Screenshot Preview">
+                <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Project Screenshot Preview">
             </div>
             <div class="lightbox-caption" id="lightbox-caption">Screenshot Title</div>
             <div class="lightbox-counter" id="lightbox-counter">Image 1 of 4</div>
@@ -2696,7 +972,7 @@
     <!-- PROJECT DETAILS MODAL -->
     <div class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="project-modal-dialog">
-            <button class="project-modal-close" onclick="closeProjectModal()" aria-label="Close Project Details (Esc)">
+            <button type="button" class="project-modal-close" onclick="closeProjectModal()" aria-label="Close Project Details (Esc)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
             <div id="modal-content">
@@ -2706,393 +982,6 @@
     </div>
 
     <!-- Vanilla JavaScript Scripts -->
-    <script>
-        // --- DATA STORE FOR SCREENSHOT GALLERIES ---
-        const projectGalleries = {
-            timesmed: [
-                { src: "project screenshots/timesmed/onboard.jpeg", caption: "TimesMed — Onboarding Flow & Telehealth Welcome" },
-                { src: "project screenshots/timesmed/login.jpeg", caption: "TimesMed — Secure Practitioner & Patient Authentication" },
-                { src: "project screenshots/timesmed/home.jpeg", caption: "TimesMed — Clinical Home Dashboard & Diagnostic Vitals" },
-                { src: "project screenshots/timesmed/ai.jpeg", caption: "TimesMed — AI Health Consultation & Diagnostic Screening" }
-            ],
-            foode: [
-                { src: "project screenshots/Foode/home.jpeg", caption: "FOODe — Restaurant Discovery & Featured Dine-In Venues" },
-                { src: "project screenshots/Foode/retsurant_details.jpeg", caption: "FOODe — Restaurant Menu & Customizable Food Items" },
-                { src: "project screenshots/Foode/orders.png", caption: "FOODe — Multi-Tier Cart & Order Processing Checkout" },
-                { src: "project screenshots/Foode/tracking.png", caption: "FOODe — Real-Time Geolocation & Live Delivery Tracking" }
-            ],
-            howdy: [
-                { src: "project screenshots/howdy chats/onboard.webp", caption: "Howdy Chats — Welcome & User Identity Onboarding" },
-                { src: "project screenshots/howdy chats/chats.webp", caption: "Howdy Chats — Asynchronous Direct Messaging & Active Threads" },
-                { src: "project screenshots/howdy chats/discover.webp", caption: "Howdy Chats — User Discovery & Community Search" },
-                { src: "project screenshots/howdy chats/ifeed.webp", caption: "Howdy Chats — Interactive Social Media Timeline & Status Feed" }
-            ]
-        };
-
-        // --- DATA STORE FOR PROJECT DETAILS MODAL ---
-        const projectDetails = {
-            taei: {
-                title: "TAEI — Tamil Nadu Accident and Emergency Care Initiative",
-                badge: "Government Healthcare &bull; State Health Network",
-                badgeClass: "project-gov",
-                overview: "The Tamil Nadu Accident and Emergency Care Initiative (TAEI) is a state-level emergency response platform designed to streamline trauma management across government hospitals, emergency departments, and district medical centers.",
-                problem: "Trauma care requires instantaneous clinical data transmission without lag. Fragmented paper triage or complex multi-step digital forms caused delays during golden-hour triage.",
-                contributions: [
-                    "Overhauled mobile UI workflows specifically targeting real-time emergency triage environments.",
-                    "Restructured layouts using strict information hierarchies to facilitate zero-latency data visualization for critical care doctors.",
-                    "Implemented robust asynchronous error handling via JSON decoding for unstable emergency network conditions.",
-                    "Standardized responsive typography and color coding for trauma severity scales."
-                ],
-                stack: ["Flutter", "Dart", "GetX", "HTTP Client", "High-Density JSON", "Clean Architecture"],
-                link: "https://taei.co.in",
-                linkText: "Visit TAEI State Portal",
-                confidentiality: "Project visuals are illustrative. Production application screenshots and restricted implementation details are not displayed in accordance with healthcare privacy protocols."
-            },
-            mtm: {
-                title: "MTM — Makkalai Thedi Maruthuvam",
-                badge: "Government Healthcare &bull; National Health Mission",
-                badgeClass: "project-gov",
-                overview: "Makkalai Thedi Maruthuvam is a flagship community health scheme launched by the Tamil Nadu Government to bring healthcare directly to people's doorsteps, screening and treating hypertension, diabetes, and palliative conditions.",
-                problem: "Field health workers operating in semi-rural and urban centers required a reliable, simple mobile interface to record patient vitals, verify identity, and sync triage updates with national registries.",
-                contributions: [
-                    "Collaborated closely on functional testing, user interface updates, and integrated secure core REST APIs to enable efficient fieldwork triage and patient indexing.",
-                    "Participated in production migration for Ayushman Bharat Digital Mission (ABDM) integration.",
-                    "Handled security compliance headers, token authentications, and seamlessly implemented M1 milestone capabilities for direct ABHA ID generation.",
-                    "Optimized local caching using structured storage to allow reliable offline records collection."
-                ],
-                stack: ["Flutter", "Dart", "Chopper", "REST APIs", "ABDM / ABHA M1", "GetX"],
-                link: "https://spc.tn.gov.in/uploads/M_T_M",
-                linkText: "Read MTM Initiative Report",
-                confidentiality: "Project visuals are illustrative. Production application screenshots and restricted implementation details are not displayed."
-            },
-            timesmed: {
-                title: "TimesMed Doctor-Patient Platform",
-                badge: "Telehealth & Consultation",
-                overview: "A comprehensive digital healthcare suite connecting patients, clinics, and medical practitioners with digital consultations, appointment scheduling, and electronic health record keeping.",
-                problem: "Prolonged live monitoring sessions and diagnostic feeds caused UI thread blockages and high memory footprints on mid-range smartphones.",
-                contributions: [
-                    "Designed and deployed interactive modern dashboard screens linking healthcare providers with real-time vitals and patient metrics.",
-                    "Optimized layout rendering and state listeners to prevent UI thread blockages during prolonged live monitoring.",
-                    "Integrated AI-assisted health consultation components for diagnostic guidance.",
-                    "Streamlined authentication and onboarding flows for both doctors and patients."
-                ],
-                stack: ["Flutter", "Dart", "Provider", "REST APIs", "Telehealth UI", "Firebase"],
-                link: null,
-                confidentiality: "Screenshots shown above are sanitized production previews with dummy demo records."
-            },
-            foode: {
-                title: "FOODe — Dine-In & Food Delivery Application",
-                badge: "Food Commerce & Logistics",
-                overview: "A multi-faceted mobile food ordering ecosystem catering to table booking, dine-in contactless menus, and doorstep food delivery with live GPS courier tracking.",
-                problem: "Coordinating simultaneous state changes across cart calculations, restaurant availability, live GPS drivers, and payment gateway callbacks required a unified architecture.",
-                contributions: [
-                    "Created the frontend framework and unified the communication APIs for a combined restaurant ordering and seat reservation model.",
-                    "Engineered Google Maps live geolocation tracking with custom map markers and route rendering.",
-                    "Integrated Razorpay SDK checkout flow with comprehensive transaction error handling.",
-                    "Utilized GetX state management for instantaneous basket and subtotal recalculations."
-                ],
-                stack: ["Flutter", "Dart", "GetX", "Google Maps SDK", "Razorpay Payment Gateway", "REST APIs"],
-                link: null,
-                confidentiality: "Verified screenshots displayed in the gallery above."
-            },
-            howdy: {
-                title: "Howdy Chats — Real-Time Social Platform",
-                badge: "Real-Time Communication",
-                overview: "A modern social communication application featuring real-time peer messaging, interactive multimedia feeds, user discovery, and instant status updates.",
-                problem: "High-throughput messaging apps require asynchronous socket handling to prevent socket drops and maintain smooth 60fps scrolling during bursts of incoming messages.",
-                contributions: [
-                    "Crafted responsive user experiences and specific layout panels for a text-based communication platform.",
-                    "Implemented asynchronous WebSocket bindings to support high-efficiency message transmission and immediate screen refreshes.",
-                    "Integrated Firebase Cloud Firestore and Realtime Database for persistent message storage and user status synchronization.",
-                    "Engineered dynamic discovery feeds with media caching for low-latency visual timeline scrolling."
-                ],
-                stack: ["Flutter", "Dart", "Firebase", "WebSockets", "Material UI", "Asynchronous State Sync"],
-                link: null,
-                confidentiality: "Verified screenshots displayed in the gallery above."
-            }
-        };
-
-        // --- MOBILE MENU CONTROLLER ---
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-
-        function toggleMenu(open) {
-            const isOpen = open !== undefined ? open : !navMenu.classList.contains('open');
-            navMenu.classList.toggle('open', isOpen);
-            menuToggle.setAttribute('aria-expanded', isOpen);
-            if (isOpen) {
-                menuToggle.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
-            } else {
-                menuToggle.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>`;
-            }
-        }
-
-        menuToggle.addEventListener('click', () => toggleMenu());
-
-        document.querySelectorAll('.nav-link, .nav-resume-btn').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-
-        // Close on outside click
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                toggleMenu(false);
-            }
-        });
-
-        // --- STICKY HEADER ---
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }, { passive: true });
-
-        // --- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ---
-        const revealElements = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-            revealElements.forEach(el => revealObserver.observe(el));
-        } else {
-            revealElements.forEach(el => el.classList.add('visible'));
-        }
-
-        // --- ACTIVE NAVIGATION HIGHLIGHT ---
-        const navSections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            navSections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }, { passive: true });
-
-        // --- LIGHTBOX GALLERY IMPLEMENTATION ---
-        let currentGalleryKey = null;
-        let currentImageIndex = 0;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxCounter = document.getElementById('lightbox-counter');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        const lightboxNext = document.getElementById('lightbox-next');
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        function openLightbox(galleryKey, index) {
-            if (!projectGalleries[galleryKey]) return;
-            currentGalleryKey = galleryKey;
-            currentImageIndex = index || 0;
-            renderLightboxImage();
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            lightboxClose.focus();
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function renderLightboxImage() {
-            const list = projectGalleries[currentGalleryKey];
-            if (!list || !list[currentImageIndex]) return;
-            const item = list[currentImageIndex];
-            
-            lightboxImg.src = item.src;
-            lightboxImg.alt = item.caption;
-            lightboxCaption.textContent = item.caption;
-            lightboxCounter.textContent = `Image ${currentImageIndex + 1} of ${list.length}`;
-
-            // Graceful error handling for missing files
-            lightboxImg.onerror = function() {
-                this.alt = "Image failed to load";
-            };
-        }
-
-        function nextLightboxImage() {
-            const list = projectGalleries[currentGalleryKey];
-            if (!list) return;
-            currentImageIndex = (currentImageIndex + 1) % list.length;
-            renderLightboxImage();
-        }
-
-        function prevLightboxImage() {
-            const list = projectGalleries[currentGalleryKey];
-            if (!list) return;
-            currentImageIndex = (currentImageIndex - 1 + list.length) % list.length;
-            renderLightboxImage();
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', nextLightboxImage);
-        lightboxPrev.addEventListener('click', prevLightboxImage);
-
-        // Click outside image to close
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        // --- PROJECT DETAILS MODAL IMPLEMENTATION ---
-        const projectModal = document.getElementById('project-modal');
-        const modalContent = document.getElementById('modal-content');
-
-        function openProjectModal(key) {
-            const data = projectDetails[key];
-            if (!data) return;
-
-            let stackHtml = data.stack.map(s => `<span class="tech-tag">${s}</span>`).join(' ');
-            let contributionsHtml = data.contributions.map(c => `<li>${c}</li>`).join('');
-            let linkBtn = data.link ? `<a href="${data.link}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top: 14px;">${data.linkText || 'Visit Link'}</a>` : '';
-            let confHtml = data.confidentiality ? `<div class="project-confidential-note" style="margin-top: 16px;"><span>${data.confidentiality}</span></div>` : '';
-
-            modalContent.innerHTML = `
-                <span class="project-domain-badge ${data.badgeClass || ''}">${data.badge}</span>
-                <h3 class="project-modal-title" id="modal-title">${data.title}</h3>
-                
-                <div class="project-modal-section">
-                    <h4>Overview</h4>
-                    <p>${data.overview}</p>
-                </div>
-
-                <div class="project-modal-section">
-                    <h4>Problem & Context</h4>
-                    <p>${data.problem}</p>
-                </div>
-
-                <div class="project-modal-section">
-                    <h4>Key Technical Responsibilities</h4>
-                    <ul>${contributionsHtml}</ul>
-                </div>
-
-                <div class="project-modal-section">
-                    <h4>Technology Stack</h4>
-                    <div class="project-tech" style="margin-top: 6px;">${stackHtml}</div>
-                </div>
-
-                ${confHtml}
-                ${linkBtn}
-            `;
-
-            projectModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            document.querySelector('.project-modal-close').focus();
-        }
-
-        function closeProjectModal() {
-            projectModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        projectModal.addEventListener('click', (e) => {
-            if (e.target === projectModal) closeProjectModal();
-        });
-
-        // --- GLOBAL KEYBOARD ACCESSIBILITY (ESC, ARROWS) ---
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (lightbox.classList.contains('active')) closeLightbox();
-                if (projectModal.classList.contains('active')) closeProjectModal();
-                if (navMenu.classList.contains('open')) toggleMenu(false);
-            }
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'ArrowRight') nextLightboxImage();
-                if (e.key === 'ArrowLeft') prevLightboxImage();
-            }
-        });
-
-        // --- CONTACT FORM SUBMISSION CONTROLLER ---
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
-        const formError = document.getElementById('form-error');
-        const formErrorMsg = document.getElementById('form-error-msg');
-        const formSubmitBtn = document.getElementById('form-submit-btn');
-        const formBtnText = document.getElementById('form-btn-text');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formSuccess.style.display = 'none';
-            formError.style.display = 'none';
-
-            const name = document.getElementById('form-name').value.trim();
-            const email = document.getElementById('form-email').value.trim();
-            const message = document.getElementById('form-message').value.trim();
-
-            // Client Validation
-            if (!name || !email || !message) {
-                formErrorMsg.textContent = "Please complete all required fields.";
-                formError.style.display = 'flex';
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                formErrorMsg.textContent = "Please enter a valid email address.";
-                formError.style.display = 'flex';
-                return;
-            }
-
-            // Button loading state
-            formSubmitBtn.disabled = true;
-            formBtnText.textContent = "Sending...";
-
-            const endpoint = contactForm.getAttribute('data-endpoint');
-
-            if (endpoint && endpoint.startsWith('http')) {
-                try {
-                    const response = await fetch(endpoint, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify({ name, email, message })
-                    });
-                    if (response.ok) {
-                        formSuccess.style.display = 'flex';
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Service responded with error');
-                    }
-                } catch (err) {
-                    formErrorMsg.textContent = "Submission failed. Please email pradeepsankaran70@gmail.com directly.";
-                    formError.style.display = 'flex';
-                } finally {
-                    formSubmitBtn.disabled = false;
-                    formBtnText.textContent = "Send Message";
-                }
-            } else {
-                // Interactive fallback: opens mail client with encoded parameters
-                setTimeout(() => {
-                    const mailtoUrl = `mailto:pradeepsankaran70@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-                    window.location.href = mailtoUrl;
-
-                    formSuccess.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Ready! Your mail client has been opened to send your message to pradeepsankaran70@gmail.com.</span>`;
-                    formSuccess.style.display = 'flex';
-                    contactForm.reset();
-                    formSubmitBtn.disabled = false;
-                    formBtnText.textContent = "Send Message";
-                }, 400);
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
