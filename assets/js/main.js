@@ -1,22 +1,22 @@
 // --- DATA STORE FOR SCREENSHOT GALLERIES ---
 const projectGalleries = {
     timesmed: [
-        { src: "assets/images/screenshots/timesmed/onboard.webp", caption: "TimesMed — Onboarding Flow & Telehealth Welcome" },
-        { src: "assets/images/screenshots/timesmed/login.webp", caption: "TimesMed — Secure Practitioner & Patient Authentication" },
-        { src: "assets/images/screenshots/timesmed/home.webp", caption: "TimesMed — Clinical Home Dashboard & Diagnostic Vitals" },
-        { src: "assets/images/screenshots/timesmed/ai.webp", caption: "TimesMed — AI Health Consultation & Diagnostic Screening" }
+        { src: "assets/images/screenshots/timesmed/onboard.webp", caption: "TimesMed — Onboarding" },
+        { src: "assets/images/screenshots/timesmed/login.webp", caption: "TimesMed — Login" },
+        { src: "assets/images/screenshots/timesmed/home.webp", caption: "TimesMed — Home dashboard and vitals" },
+        { src: "assets/images/screenshots/timesmed/ai.webp", caption: "TimesMed — AI health consultation" }
     ],
     foode: [
-        { src: "assets/images/screenshots/foode/home.webp", caption: "FOODe — Restaurant Discovery & Featured Dine-In Venues" },
-        { src: "assets/images/screenshots/foode/restaurant-details.webp", caption: "FOODe — Restaurant Menu & Customizable Food Items" },
-        { src: "assets/images/screenshots/foode/orders.webp", caption: "FOODe — Multi-Tier Cart & Order Processing Checkout" },
-        { src: "assets/images/screenshots/foode/tracking.webp", caption: "FOODe — Real-Time Geolocation & Live Delivery Tracking" }
+        { src: "assets/images/screenshots/foode/home.webp", caption: "FOODe — Restaurant discovery" },
+        { src: "assets/images/screenshots/foode/restaurant-details.webp", caption: "FOODe — Restaurant menu" },
+        { src: "assets/images/screenshots/foode/orders.webp", caption: "FOODe — Cart and checkout" },
+        { src: "assets/images/screenshots/foode/tracking.webp", caption: "FOODe — Live delivery tracking" }
     ],
     howdy: [
-        { src: "assets/images/screenshots/howdy-chats/onboard.webp", caption: "Howdy Chats — Welcome & User Identity Onboarding" },
-        { src: "assets/images/screenshots/howdy-chats/chats.webp", caption: "Howdy Chats — Asynchronous Direct Messaging & Active Threads" },
-        { src: "assets/images/screenshots/howdy-chats/discover.webp", caption: "Howdy Chats — User Discovery & Community Search" },
-        { src: "assets/images/screenshots/howdy-chats/feed.webp", caption: "Howdy Chats — Interactive Social Media Timeline & Status Feed" }
+        { src: "assets/images/screenshots/howdy-chats/onboard.webp", caption: "Howdy Chats — Welcome and sign-up" },
+        { src: "assets/images/screenshots/howdy-chats/chats.webp", caption: "Howdy Chats — Direct messages" },
+        { src: "assets/images/screenshots/howdy-chats/discover.webp", caption: "Howdy Chats — Discover people and communities" },
+        { src: "assets/images/screenshots/howdy-chats/feed.webp", caption: "Howdy Chats — Social feed" }
     ]
 };
 
@@ -24,82 +24,78 @@ const projectGalleries = {
 const projectDetails = {
     taei: {
         title: "TAEI — Tamil Nadu Accident and Emergency Care Initiative",
-        badge: "Government Healthcare &bull; State Health Network",
+        badge: "Government healthcare",
         badgeClass: "project-gov",
-        overview: "The Tamil Nadu Accident and Emergency Care Initiative (TAEI) is a state-level emergency response platform designed to streamline trauma management across government hospitals, emergency departments, and district medical centers.",
-        problem: "Trauma care requires instantaneous clinical data transmission without lag. Fragmented paper triage or complex multi-step digital forms caused delays during golden-hour triage.",
+        overview: "TAEI is Tamil Nadu's state emergency care platform. It links ambulances, hospital emergency departments and district medical centers so trauma cases are handled consistently.",
+        problem: "In trauma care, every minute counts. Paper triage and long multi-step forms slowed doctors down during the first critical hour.",
         contributions: [
-            "Overhauled mobile UI workflows specifically targeting real-time emergency triage environments.",
-            "Restructured layouts using strict information hierarchies to facilitate zero-latency data visualization for critical care doctors.",
-            "Implemented robust asynchronous error handling via JSON decoding for unstable emergency network conditions.",
-            "Standardized responsive typography and color coding for trauma severity scales."
+            "Reworked the mobile triage screens for use in busy emergency departments.",
+            "Reorganized layouts so the most critical patient data is visible first.",
+            "Added error handling for API responses so the app copes with unreliable networks.",
+            "Standardized text sizes and the color coding used for trauma severity."
         ],
-        stack: ["Flutter", "Dart", "GetX", "HTTP Client", "High-Density JSON", "Clean Architecture"],
+        stack: ["Flutter", "Dart", "GetX", "HTTP Client", "Clean Architecture"],
         link: "https://taei.co.in",
-        linkText: "Visit TAEI State Portal",
-        confidentiality: "Project visuals are illustrative. Production application screenshots and restricted implementation details are not displayed in accordance with healthcare privacy protocols."
+        linkText: "Visit the TAEI portal"
     },
     mtm: {
         title: "MTM — Makkalai Thedi Maruthuvam",
-        badge: "Government Healthcare &bull; National Health Mission",
+        badge: "Government healthcare",
         badgeClass: "project-gov",
-        overview: "Makkalai Thedi Maruthuvam is a flagship community health scheme launched by the Tamil Nadu Government to bring healthcare directly to people's doorsteps, screening and treating hypertension, diabetes, and palliative conditions.",
-        problem: "Field health workers operating in semi-rural and urban centers required a reliable, simple mobile interface to record patient vitals, verify identity, and sync triage updates with national registries.",
+        overview: "Makkalai Thedi Maruthuvam is a Tamil Nadu Government health scheme that brings care to people's homes, screening and treating hypertension, diabetes and palliative conditions.",
+        problem: "Field health workers in rural and urban areas needed a simple, reliable app to record patient vitals, verify identity and sync records with national registries.",
         contributions: [
-            "Collaborated closely on functional testing, user interface updates, and integrated secure core REST APIs to enable efficient fieldwork triage and patient indexing.",
-            "Participated in production migration for Ayushman Bharat Digital Mission (ABDM) integration.",
-            "Handled security compliance headers, token authentications, and seamlessly implemented M1 milestone capabilities for direct ABHA ID generation.",
-            "Optimized local caching using structured storage to allow reliable offline records collection."
+            "Worked on functional testing and UI updates, and integrated the core REST APIs for field triage and patient records.",
+            "Helped take the Ayushman Bharat Digital Mission (ABDM) integration to production.",
+            "Handled authentication tokens and required security headers, and implemented ABDM M1 features for creating ABHA IDs.",
+            "Improved local caching so records can be collected offline."
         ],
         stack: ["Flutter", "Dart", "Chopper", "REST APIs", "ABDM / ABHA M1", "GetX"],
         link: "https://spc.tn.gov.in/uploads/M_T_M",
-        linkText: "Read MTM Initiative Report",
-        confidentiality: "Project visuals are illustrative. Production application screenshots and restricted implementation details are not displayed."
+        linkText: "Read about the MTM program"
     },
     timesmed: {
-        title: "TimesMed Doctor-Patient Platform",
-        badge: "Telehealth & Consultation",
-        overview: "A comprehensive digital healthcare suite connecting patients, clinics, and medical practitioners with digital consultations, appointment scheduling, and electronic health record keeping.",
-        problem: "Prolonged live monitoring sessions and diagnostic feeds caused UI thread blockages and high memory footprints on mid-range smartphones.",
+        title: "TimesMed — Doctor–patient telehealth app",
+        badge: "Telehealth",
+        overview: "A healthcare app that connects patients, clinics and doctors for online consultations, appointment booking and health records.",
+        problem: "Long live-monitoring sessions made the UI lag and used too much memory on mid-range phones.",
         contributions: [
-            "Designed and deployed interactive modern dashboard screens linking healthcare providers with real-time vitals and patient metrics.",
-            "Optimized layout rendering and state listeners to prevent UI thread blockages during prolonged live monitoring.",
-            "Integrated AI-assisted health consultation components for diagnostic guidance.",
-            "Streamlined authentication and onboarding flows for both doctors and patients."
+            "Built dashboard screens that show doctors real-time vitals and patient metrics.",
+            "Reduced unnecessary rebuilds and listeners to fix UI lag during long monitoring sessions.",
+            "Integrated the AI-assisted health consultation feature.",
+            "Simplified the login and onboarding flows for doctors and patients."
         ],
-        stack: ["Flutter", "Dart", "Provider", "REST APIs", "Telehealth UI", "Firebase"],
+        stack: ["Flutter", "Dart", "Provider", "REST APIs", "Firebase"],
         link: null,
-        confidentiality: "Screenshots shown above are sanitized production previews with dummy demo records."
+        confidentiality: "Screenshots use demo data, not real patient records."
     },
     foode: {
-        title: "FOODe — Dine-In & Food Delivery Application",
-        badge: "Food Commerce & Logistics",
-        overview: "A multi-faceted mobile food ordering ecosystem catering to table booking, dine-in contactless menus, and doorstep food delivery with live GPS courier tracking.",
-        problem: "Coordinating simultaneous state changes across cart calculations, restaurant availability, live GPS drivers, and payment gateway callbacks required a unified architecture.",
+        title: "FOODe — Dine-in and food ordering app",
+        badge: "Food delivery",
+        overview: "A food app covering table booking, dine-in menus and home delivery with live courier tracking.",
+        problem: "The cart, restaurant availability, live driver locations and payment callbacks all change at once, so the app needed one consistent way to manage state.",
         contributions: [
-            "Created the frontend framework and unified the communication APIs for a combined restaurant ordering and seat reservation model.",
-            "Engineered Google Maps live geolocation tracking with custom map markers and route rendering.",
-            "Integrated Razorpay SDK checkout flow with comprehensive transaction error handling.",
-            "Utilized GetX state management for instantaneous basket and subtotal recalculations."
+            "Built the front end and a single API layer for both food ordering and table booking.",
+            "Added live delivery tracking on Google Maps with custom markers and routes.",
+            "Integrated Razorpay checkout, including handling failed payments.",
+            "Used GetX so the cart and totals update instantly."
         ],
-        stack: ["Flutter", "Dart", "GetX", "Google Maps SDK", "Razorpay Payment Gateway", "REST APIs"],
-        link: null,
-        confidentiality: "Verified screenshots displayed in the gallery above."
+        stack: ["Flutter", "Dart", "GetX", "Google Maps SDK", "Razorpay", "REST APIs"],
+        link: null
     },
     howdy: {
-        title: "Howdy Chats — Real-Time Social Platform",
-        badge: "Real-Time Communication",
-        overview: "A modern social communication application featuring real-time peer messaging, interactive multimedia feeds, user discovery, and instant status updates.",
-        problem: "High-throughput messaging apps require asynchronous socket handling to prevent socket drops and maintain smooth 60fps scrolling during bursts of incoming messages.",
+        title: "Howdy Chats — Real-time messaging app",
+        badge: "Social &amp; chat",
+        overview: "A social app with real-time messaging, media feeds, people discovery and live status updates.",
+        problem: "Chat apps have to keep connections alive and keep scrolling smooth even when many messages arrive at once.",
         contributions: [
-            "Crafted responsive user experiences and specific layout panels for a text-based communication platform.",
-            "Implemented asynchronous WebSocket bindings to support high-efficiency message transmission and immediate screen refreshes.",
-            "Integrated Firebase Cloud Firestore and Realtime Database for persistent message storage and user status synchronization.",
-            "Engineered dynamic discovery feeds with media caching for low-latency visual timeline scrolling."
+            "Built the chat, feed and discovery screens.",
+            "Used WebSockets to send and receive messages in real time.",
+            "Used Cloud Firestore and Firebase Realtime Database to store messages and sync online status.",
+            "Added media caching so the discovery feed scrolls smoothly."
         ],
-        stack: ["Flutter", "Dart", "Firebase", "WebSockets", "Material UI", "Asynchronous State Sync"],
-        link: null,
-        confidentiality: "Verified screenshots displayed in the gallery above."
+        stack: ["Flutter", "Dart", "Firebase", "WebSockets", "Material UI"],
+        link: null
     }
 };
 
