@@ -35,8 +35,10 @@ const projectDetails = {
             "Standardized text sizes and the color coding used for trauma severity."
         ],
         stack: ["Flutter", "Dart", "GetX", "HTTP Client", "Clean Architecture"],
-        link: "https://taei.co.in",
-        linkText: "Visit the TAEI portal"
+        links: [
+            { url: "https://play.google.com/store/apps/details?id=com.app.taei_gov", text: "Get it on Google Play" },
+            { url: "https://taei.co.in", text: "Visit the TAEI portal" }
+        ]
     },
     mtm: {
         title: "MTM — Makkalai Thedi Maruthuvam",
@@ -95,7 +97,10 @@ const projectDetails = {
             "Added media caching so the discovery feed scrolls smoothly."
         ],
         stack: ["Flutter", "Dart", "Firebase", "WebSockets", "Material UI"],
-        link: null
+        links: [
+            { url: "https://play.google.com/store/apps/details?id=com.timesmed.wego", text: "Get it on Google Play" },
+            { url: "https://howdychats.com/", text: "Visit howdychats.com" }
+        ]
     }
 };
 
@@ -270,7 +275,10 @@ function openProjectModal(key) {
 
     let stackHtml = data.stack.map(s => `<span class="tech-tag">${s}</span>`).join(' ');
     let contributionsHtml = data.contributions.map(c => `<li>${c}</li>`).join('');
-    let linkBtn = data.link ? `<a href="${data.link}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="margin-top: 14px;">${data.linkText || 'Visit Link'}</a>` : '';
+    const links = data.links || (data.link ? [{ url: data.link, text: data.linkText || 'Visit Link' }] : []);
+    let linkBtn = links.length
+        ? `<div class="project-actions" style="margin-top: 14px;">${links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">${l.text}</a>`).join('')}</div>`
+        : '';
     let confHtml = data.confidentiality ? `<div class="project-confidential-note" style="margin-top: 16px;"><span>${data.confidentiality}</span></div>` : '';
 
     modalContent.innerHTML = `
